@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ajormoklav.github.io/gate-kaiyun-cn-com-cn/sitemap.xml

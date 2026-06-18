@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>开云 · 站点介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #f4f6fa;
+            color: #222;
+            line-height: 1.7;
+        }
+
+        /* 深色头图 - hero */
+        .hero {
+            background: linear-gradient(145deg, #0b1a2e 0%, #1f2e44 100%);
+            color: #eef2f5;
+            padding: 4rem 2rem 3.2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -40%;
+            left: -20%;
+            width: 80%;
+            height: 120%;
+            background: radial-gradient(circle at 30% 40%, rgba(75, 130, 220, 0.08), transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero .sub {
+            font-size: 1.15rem;
+            opacity: 0.8;
+            font-weight: 300;
+            max-width: 640px;
+            margin: 0.75rem auto 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero .badge {
+            display: inline-block;
+            margin-top: 1.8rem;
+            padding: 0.4rem 1.2rem;
+            font-size: 0.85rem;
+            border-radius: 40px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #cddbe9;
+            letter-spacing: 0.5px;
+            backdrop-filter: blur(2px);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* 浅色正文区 */
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 2.8rem 1.8rem 4rem;
+        }
+
+        .intro-section {
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.03);
+            padding: 2.2rem 2.5rem;
+            margin-bottom: 2.8rem;
+        }
+
+        .intro-section:last-of-type {
+            margin-bottom: 1.2rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 1.2rem;
+            color: #1b2a3f;
+            border-left: 5px solid #3c6e9c;
+            padding-left: 1rem;
+        }
+
+        .section-title span {
+            font-weight: 300;
+            color: #567a9e;
+        }
+
+        .intro-section p {
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+        }
+
+        .intro-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        a {
+            color: #26648b;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border 0.2s, color 0.2s;
+        }
+
+        a:hover {
+            border-bottom-color: #26648b;
+            color: #0f4b73;
+        }
+
+        /* 卡片式特点区块 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0 1rem;
+        }
+
+        .feature-card {
+            background: #f8faff;
+            border-radius: 18px;
+            padding: 1.5rem 1.2rem;
+            border: 1px solid #e6ecf3;
+            transition: background 0.2s;
+        }
+
+        .feature-card:hover {
+            background: #f1f6fe;
+        }
+
+        .feature-card h3 {
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: #1f3b52;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            color: #3a4d62;
+        }
+
+        .faq-mini {
+            background: #fafcfe;
+            border-radius: 20px;
+            padding: 1.8rem 2rem;
+            margin-top: 2rem;
+            border: 1px solid #e2eaf2;
+        }
+
+        .faq-mini h3 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #1f3b52;
+            margin-bottom: 1rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 500;
+            color: #1f3b52;
+            margin-bottom: 0.15rem;
+        }
+
+        .faq-item p {
+            margin: 0;
+            font-size: 0.98rem;
+            color: #3b4d61;
+        }
+
+        /* 页尾提示 */
+        .footer-note {
+            margin-top: 3.2rem;
+            text-align: center;
+            padding: 1.8rem 1rem 1rem;
+            border-top: 1px solid #dce3ec;
+        }
+
+        .footer-note p {
+            font-size: 0.95rem;
+            color: #56697e;
+        }
+
+        .footer-note .highlight-link {
+            font-weight: 500;
+        }
+
+        /* 响应式细节 */
+        @media (max-width: 720px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .sub {
+                font-size: 1rem;
+            }
+
+            .container {
+                padding: 1.8rem 1rem 2.8rem;
+            }
+
+            .intro-section {
+                padding: 1.5rem 1.2rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .faq-mini {
+                padding: 1.2rem 1.2rem;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 2.8rem 1.2rem 2.2rem;
+            }
+
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 深色头图 -->
+    <header class="hero">
+        <h1>开云 · 信息与说明</h1>
+        <p class="sub">一份经过整理的站点介绍，帮助您更清晰地了解平台背景与内容方向。</p>
+        <div class="badge">站点说明 · 2025</div>
+    </header>
+
+    <!-- 正文区 -->
+    <div class="container">
+
+        <!-- 背景说明 -->
+        <section class="intro-section">
+            <h2 class="section-title">背景与定位</h2>
+            <p>「开云」是一个面向特定领域用户提供信息聚合与参考资源的在线平台。站点以实用与清晰为基本准则，汇聚了经过筛选的资讯、工具索引以及相关领域的说明内容。其命名取“开卷有益，云集众智”之意，希望来访者能够通过站点获得有价值的信息线索。</p>
+            <p>平台运营团队持续关注内容质量与来源的可靠性，所有公开信息均经过基础核实与分类整理，以便用户在浏览时能够快速定位自己需要的部分。站点本身不提供投资建议、财务承诺或任何形式的保证，仅作为公开信息的展示与导航。</p>
+        </section>
+
+        <!-- 三段自然介绍（第二段融入特点） -->
+        <section class="intro-section">
+            <h2 class="section-title">内容结构与<span>特点</span></h2>
+            <p>整个站点围绕几个主要模块展开：行业动态摘要、基础概念解释、相关资源导航以及常见问题汇集。每个模块都尽力保持叙述的平实与中立，避免过度解读或片面引导。同时，页面布局注重可读性，在电脑与手机设备上均有良好的浏览体验。</p>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>分类清晰</h3>
+                    <p>内容按主题区分，每个板块配有简要说明，方便按需查阅。</p>
+                </div>
+                <div class="feature-card">
+                    <h3>来源可溯</h3>
+                    <p>重要信息均标注参考来源或数据时间，降低信息不确定度。</p>
+                </div>
+                <div class="feature-card">
+                    <h3>持续更新</h3>
+                    <p>根据领域变化定期调整内容，废弃或过时条目会被及时替换。</p>
+                </div>
+            </div>
+
+            <p>此外，站点在页面交互上尽量简化，不设置复杂注册或强制跳转，用户可以直接浏览绝大多数内容。如果您希望深入了解某一主题，站点也会提供外部参考链接（均经过基础可用性检查）。</p>
+        </section>
+
+        <!-- 第三段：可信说明 + 场景提示 -->
+        <section class="intro-section">
+            <h2 class="section-title">可信说明与适用场景</h2>
+            <p>开云站点的所有公开内容均以“信息参考”为定位，不构成任何形式的合同、承诺或专业意见。团队在编辑过程中会避免使用夸大或绝对化的表述，并会在必要时补充上下文或限制条件。如果您发现页面中存在错误或不准确之处，欢迎通过站点预设的反馈渠道提出。</p>
+            <p>适用人群包括：希望快速了解领域基础概念的新用户、需要查找整理后资源索引的中级用户，以及希望核对某些公开信息表述的读者。站点不针对特定年龄或地区，但内容主要使用中文编写，适合中文读者阅读。</p>
+            <p>需要特别说明的是：任何在线平台都无法保证信息的绝对全面或时效，建议您将本站内容作为线索之一，再结合其他权威来源交叉验证。这也是我们把站点定位为“参考与索引”而非“唯一答案”的原因。</p>
+        </section>
+
+        <!-- FAQ 摘要 -->
+        <div class="faq-mini">
+            <h3>常见问题摘要</h3>
+            <div class="faq-item">
+                <strong>▸ 开云网站的主要内容是什么？</strong>
+                <p>提供某一领域内的资讯摘要、概念说明、工具导航与常见问题解答，所有内容均经过编辑整理。</p>
+            </div>
+            <div class="faq-item">
+                <strong>▸ 内容是否实时更新？</strong>
+                <p>团队会定期（通常为每两周或每月）对核心内容进行审校与更新，紧急变动会更快响应。</p>
+            </div>
+            <div class="faq-item">
+                <strong>▸ 我如何访问主站？</strong>
+                <p>您可以直接通过浏览器访问 <a href="https://www.gate-kaiyun-cn.com.cn">开云</a> 获取完整内容。页面以信息展示为主，无需额外操作即可浏览大部分板块。</p>
+            </div>
+        </div>
+
+        <!-- 页尾访问提示 -->
+        <div class="footer-note">
+            <p>本页面为站点介绍专页，更多信息请访问主站 <a href="https://www.gate-kaiyun-cn.com.cn" class="highlight-link">开云</a> 。</p>
+            <p style="margin-top: 0.8rem; font-size: 0.9rem;">—— 基于公开信息整理，仅供阅读参考 · 不对内容做绝对性承诺 ——</p>
+        </div>
+
+    </div>
+
+</body>
+</html>
